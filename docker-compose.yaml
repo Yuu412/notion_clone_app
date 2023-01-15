@@ -1,7 +1,7 @@
 services:
   front:
     build:
-      context: './react-docker'
+      context: "./react-docker"
       dockerfile: Dockerfile
     ports:
       - 3000:3000
@@ -20,7 +20,7 @@ services:
       nodemon src/server.js"
   backend:
     build:
-      context: './express-docker'
+      context: "./express-docker"
       dockerfile: Dockerfile
     ports:
       - 5050:5050
@@ -54,7 +54,3 @@ networks:
   mern-stack-network:
 volumes:
   mongoData:
-
-
-
-
