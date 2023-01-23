@@ -49,7 +49,7 @@ exports.login = async (req, res) => {
 
     const decryptedPassword = CryptoJS.AES.decrypt(
       user.password,
-      process.env.PASS_SK
+      process.env.SECRET_KEY
     ).toString(CryptoJS.enc.Utf8);
 
     //パスワード適合チェック
@@ -67,9 +67,13 @@ exports.login = async (req, res) => {
     user.password = undefined;
 
     //トークンを発行(24時間まで有効)
-    const token = jsonwebtoken.sign({ id: user._id }, process.env.TOKEN_SK, {
-      expiresIn: "24h",
-    });
+    const token = jsonwebtoken.sign(
+      { id: user._id },
+      process.env.TOKEN_SECRET_KEY,
+      {
+        expiresIn: "24h",
+      }
+    );
 
     //リクエスト成功、新たなリソースの作成に成功したことを表す。
     res.status(201).json({ user, token });
