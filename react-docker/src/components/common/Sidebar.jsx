@@ -10,10 +10,12 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import React from "react";
 import assets from "../../assets/index";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user.value);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -44,7 +46,7 @@ const Sidebar = () => {
             }}
           >
             <Typography variant="body2" fontWeight="700">
-              yoshida
+              {user.username}
             </Typography>
             <IconButton onClick={logout}>
               <LogoutOutlinedIcon />
@@ -85,6 +87,30 @@ const Sidebar = () => {
               <AddBoxOutlinedIcon fontSize="small" />
             </IconButton>
           </Box>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{ pl: "20px" }}
+          component={Link}
+          to="/memo/320adsf99231"
+        >
+          <Typography>📝無題</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{ pl: "20px" }}
+          component={Link}
+          to="/memo/320adsf99231"
+        >
+          <Typography>📝無題</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{ pl: "20px" }}
+          component={Link}
+          to="/memo/320adsf99231"
+        >
+          <Typography>📝無題</Typography>
         </ListItemButton>
       </List>
     </Drawer>
