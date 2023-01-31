@@ -24,7 +24,6 @@ const AppLayout = () => {
       } else {
         //userを保存する
         dispatch(setUser(user));
-        navigate("/");
       }
     };
     checkAuth();
