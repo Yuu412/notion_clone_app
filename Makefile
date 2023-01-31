@@ -9,22 +9,22 @@ up:
 	@echo "================================="
 	@echo "コンテナの起動（dev環境）"
 	@echo "================================="
-	@sleep 5
-	docker-compose down
+	@sleep 3
+	docker compose down
 	docker compose up -d
 
 down:
 	@echo "================================="
 	@echo "コンテナを停止します（dev環境）"
 	@echo "================================="
-	@sleep 5
+	@sleep 3
 	docker compose down
 
 build:
 	@echo "================================="
 	@echo "コンテナの構築 & 起動（dev環境）"
 	@echo "================================="
-	@sleep 5
+	@sleep 3
 	docker compose down
 	docker compose up -d --build
 
